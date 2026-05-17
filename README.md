@@ -16,14 +16,15 @@ shows your analytics dashboard inside WP Admin.
 
 ## Installation
 
-**From WordPress.org** (once published): search for *Logly Analytics* under
-Plugins → Add New, install and activate.
+**From a release zip** (recommended):
 
-**Manual:**
-
-1. Copy the [`logly/`](logly/) folder into `wp-content/plugins/`.
-2. Activate **Logly Analytics** under Plugins → Installed Plugins.
+1. Download the latest `logly-analytics-*.zip` from the [Releases page](https://github.com/logly-uk/logly-wordpress/releases).
+2. In WP Admin, go to **Plugins → Add New → Upload Plugin**, choose the zip, then **Install Now** and **Activate**.
 3. Open **Logly** in the admin menu and enter your Site ID.
+
+**From WordPress.org**: once approved, search for *Logly Analytics* under Plugins → Add New.
+
+**Manually**: copy the [`logly/`](logly/) folder into `wp-content/plugins/`, then activate the plugin under Plugins → Installed Plugins.
 
 ## Configuration
 
