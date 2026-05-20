@@ -7,7 +7,7 @@
  * Author:      Logly
  * License:     GPL-2.0+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: logly
+ * Text Domain: logly-analytics
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -28,8 +28,8 @@ add_action( 'admin_init', function () {
 
 add_action( 'admin_menu', function () {
     add_menu_page(
-        esc_html__( 'Logly Analytics', 'logly' ),
-        esc_html__( 'Logly', 'logly' ),
+        esc_html__( 'Logly Analytics', 'logly-analytics' ),
+        esc_html__( 'Logly', 'logly-analytics' ),
         'manage_options',
         'logly',
         'logly_admin_page',
@@ -45,22 +45,22 @@ add_action( 'admin_enqueue_scripts', function ( $hook ) {
 
 function logly_admin_page() {
     if ( ! current_user_can( 'manage_options' ) ) {
-        wp_die( esc_html__( 'You do not have permission to access this page.', 'logly' ) );
+        wp_die( esc_html__( 'You do not have permission to access this page.', 'logly-analytics' ) );
     }
     $site_id = get_option( 'logly_site_id', '' );
     ?>
     <div class="wrap" style="max-width:960px">
-        <h1 style="margin-bottom:0.75rem"><span style="color:#1a56db">&#9679;</span> <?php esc_html_e( 'Logly Analytics', 'logly' ); ?></h1>
+        <h1 style="margin-bottom:0.75rem"><span style="color:#1a56db">&#9679;</span> <?php esc_html_e( 'Logly Analytics', 'logly-analytics' ); ?></h1>
 
         <?php if ( $site_id ) : ?>
         <div id="logly-settings-bar" style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:0.6rem 1rem;margin-bottom:0.75rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
-            <span style="font-size:0.8125rem;color:#16a34a;font-weight:500"><?php esc_html_e( '✅ Tracking active', 'logly' ); ?></span>
+            <span style="font-size:0.8125rem;color:#16a34a;font-weight:500"><?php esc_html_e( '✅ Tracking active', 'logly-analytics' ); ?></span>
             <code style="font-size:0.8125rem;background:#f1f5f9;padding:0.15rem 0.5rem;border-radius:4px"><?php echo esc_html( $site_id ); ?></code>
             <button type="button"
                     data-logly-toggle
-                    data-label-show="<?php echo esc_attr__( 'Change', 'logly' ); ?>"
-                    data-label-hide="<?php echo esc_attr__( 'Cancel', 'logly' ); ?>"
-                    style="font-size:0.8rem;color:#6366f1;background:none;border:none;cursor:pointer;padding:0;text-decoration:underline"><?php esc_html_e( 'Change', 'logly' ); ?></button>
+                    data-label-show="<?php echo esc_attr__( 'Change', 'logly-analytics' ); ?>"
+                    data-label-hide="<?php echo esc_attr__( 'Cancel', 'logly-analytics' ); ?>"
+                    style="font-size:0.8rem;color:#6366f1;background:none;border:none;cursor:pointer;padding:0;text-decoration:underline"><?php esc_html_e( 'Change', 'logly-analytics' ); ?></button>
         </div>
         <div id="logly-settings-form" style="display:none;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;margin-bottom:0.75rem">
         <?php else : ?>
@@ -70,7 +70,7 @@ function logly_admin_page() {
                 <?php
                 printf(
                     /* translators: %s: link to app.logly.uk Settings */
-                    esc_html__( 'Find your Site ID in %s — shown below the install snippet for each site. Enable the Public toggle on your site there to show analytics here.', 'logly' ),
+                    esc_html__( 'Find your Site ID in %s — shown below the install snippet for each site. Enable the Public toggle on your site there to show analytics here.', 'logly-analytics' ),
                     '<a href="' . esc_url( LOGLY_APP . '/settings' ) . '" target="_blank" rel="noopener">app.logly.uk → Settings</a>'
                 );
                 ?>
@@ -78,26 +78,26 @@ function logly_admin_page() {
             <form method="post" action="options.php" style="display:flex;gap:0.5rem;align-items:flex-end;flex-wrap:wrap">
                 <?php settings_fields( 'logly_settings' ); ?>
                 <div>
-                    <label for="logly_site_id" style="display:block;font-size:0.8rem;font-weight:600;color:#475569;margin-bottom:0.3rem"><?php esc_html_e( 'Site ID', 'logly' ); ?></label>
+                    <label for="logly_site_id" style="display:block;font-size:0.8rem;font-weight:600;color:#475569;margin-bottom:0.3rem"><?php esc_html_e( 'Site ID', 'logly-analytics' ); ?></label>
                     <input type="text" id="logly_site_id" name="logly_site_id"
                            value="<?php echo esc_attr( $site_id ); ?>"
-                           style="width:260px" placeholder="<?php echo esc_attr__( 'e.g. licenflow-com', 'logly' ); ?>" />
+                           style="width:260px" placeholder="<?php echo esc_attr__( 'e.g. licenflow-com', 'logly-analytics' ); ?>" />
                 </div>
-                <?php submit_button( __( 'Save', 'logly' ), 'primary', 'submit', false ); ?>
+                <?php submit_button( __( 'Save', 'logly-analytics' ), 'primary', 'submit', false ); ?>
             </form>
         </div>
 
         <?php if ( $site_id ) : ?>
         <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:0.875rem 1rem 0">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.625rem">
-                <span style="font-size:0.9375rem;font-weight:600"><?php esc_html_e( 'Analytics', 'logly' ); ?></span>
-                <a href="<?php echo esc_url( LOGLY_APP . '/dashboard' ); ?>" target="_blank" rel="noopener" style="font-size:0.8125rem;color:#6366f1"><?php esc_html_e( 'Full dashboard →', 'logly' ); ?></a>
+                <span style="font-size:0.9375rem;font-weight:600"><?php esc_html_e( 'Analytics', 'logly-analytics' ); ?></span>
+                <a href="<?php echo esc_url( LOGLY_APP . '/dashboard' ); ?>" target="_blank" rel="noopener" style="font-size:0.8125rem;color:#6366f1"><?php esc_html_e( 'Full dashboard →', 'logly-analytics' ); ?></a>
             </div>
             <iframe
                 src="<?php echo esc_url( LOGLY_APP . '/embed?s=' . $site_id ); ?>"
                 style="width:100%;height:calc(100vh - 220px);min-height:600px;border:1px solid #e2e8f0;border-radius:6px;background:#f8fafc;display:block"
                 loading="lazy"
-                title="<?php echo esc_attr__( 'Logly Analytics', 'logly' ); ?>"
+                title="<?php echo esc_attr__( 'Logly Analytics', 'logly-analytics' ); ?>"
             ></iframe>
         </div>
         <?php endif; ?>
