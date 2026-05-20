@@ -61,6 +61,28 @@ In your Logly dashboard at [app.logly.uk](https://app.logly.uk) — go to Settin
 
 Yes. Free forever up to 10,000 pageviews/month, no credit card required.
 
+== External services ==
+
+This plugin loads a tracking script from Logly Analytics (https://logly.uk) and sends pageview data to Logly's servers so you can view analytics for your site. Logly is a privacy-first web analytics service operated by Logly.
+
+**What is sent and when:** every time a visitor loads a page on your site, the tracker script (loaded from `https://logly.uk/p.js`) sends a small GET request to `https://logly.uk/e` containing only:
+
+* the page path being viewed
+* an anonymous session hash (derived from IP + User-Agent + a daily-rotating salt; not reversible, not stored)
+* the visitor's country (resolved from IP at the edge; the IP itself is never stored)
+* device, browser and OS family (e.g. "Mobile / Chrome / Android")
+* the referrer URL, if any
+* your Site ID (so Logly knows which property the pageview belongs to)
+
+No cookies are set, no personal data is stored, and no consent banner is required under GDPR or PECR.
+
+**When this happens:** only after you configure the plugin with a Site ID in **Settings → Logly**. Without a Site ID, the plugin sends nothing.
+
+**Terms and privacy policy:**
+
+* Terms of Service: https://logly.uk/terms
+* Privacy Policy: https://logly.uk/privacy
+
 == Changelog ==
 
 = 1.0.0 =
