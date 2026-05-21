@@ -1,4 +1,4 @@
-=== Logly Analytics ===
+=== Loglyuk Privacy Analytics ===
 Contributors: loglyuk
 Tags: analytics, privacy, GDPR, cookie-free, lightweight
 Requires at least: 5.0
@@ -12,9 +12,9 @@ Privacy-first analytics under 1 KB. No cookies, no consent banner, works with Br
 
 == Description ==
 
-**Logly** is a lightweight web analytics tool that tracks your visitors without cookies, without storing personal data, and without requiring a consent banner.
+**Loglyuk Privacy Analytics** connects your WordPress site to Loglyuk (logly.uk), a lightweight web analytics service that tracks your visitors without cookies, without storing personal data, and without requiring a consent banner.
 
-= Why Logly? =
+= Why Loglyuk? =
 
 * **Under 1 KB** — zero impact on your Lighthouse score or Core Web Vitals
 * **No cookie banner required** — no persistent identifiers, GDPR compliant by design
@@ -33,29 +33,29 @@ Privacy-first analytics under 1 KB. No cookies, no consent banner, works with Br
 = Setup =
 
 1. Install and activate the plugin
-2. Go to **Settings → Logly**
+2. Go to **Loglyuk** in the WordPress admin sidebar
 3. Enter your Site ID from [app.logly.uk](https://app.logly.uk)
 4. Done — no tag manager, no configuration file
 
 == Installation ==
 
-1. Upload the `logly` folder to `/wp-content/plugins/`
+1. Upload the `loglyuk-privacy-analytics` folder to `/wp-content/plugins/`
 2. Activate the plugin via **Plugins → Installed Plugins**
-3. Go to **Settings → Logly** and enter your Site ID
+3. Go to **Loglyuk** in the admin sidebar and enter your Site ID
 
 == Frequently Asked Questions ==
 
 = Do I need a cookie banner? =
 
-No. Logly does not set cookies or store personal data, so no consent banner is required under GDPR or PECR.
+No. Loglyuk does not set cookies or store personal data, so no consent banner is required under GDPR or PECR.
 
 = Does it work with Brave or ad blockers? =
 
-Yes. Logly is designed to work with Brave Shields, uBlock Origin, and Firefox Enhanced Tracking Protection.
+Yes. Loglyuk is designed to work with Brave Shields, uBlock Origin, and Firefox Enhanced Tracking Protection.
 
 = Where do I find my Site ID? =
 
-In your Logly dashboard at [app.logly.uk](https://app.logly.uk) — go to Settings for your site and copy the ID from the installation snippet.
+In your Loglyuk dashboard at [app.logly.uk](https://app.logly.uk) — go to Settings for your site and copy the ID from the installation snippet.
 
 = Is there a free plan? =
 
@@ -63,7 +63,7 @@ Yes. Free forever up to 10,000 pageviews/month, no credit card required.
 
 == External services ==
 
-This plugin loads a tracking script from Logly Analytics (https://logly.uk) and sends pageview data to Logly's servers so you can view analytics for your site. Logly is a privacy-first web analytics service operated by Logly.
+This plugin loads a tracking script from Loglyuk (https://logly.uk) and sends pageview data to Loglyuk's servers so you can view analytics for your site. Loglyuk is a privacy-first web analytics service operated at logly.uk.
 
 **What is sent and when:** every time a visitor loads a page on your site, the tracker script (loaded from `https://logly.uk/p.js`) sends a small GET request to `https://logly.uk/e` containing only:
 
@@ -72,11 +72,11 @@ This plugin loads a tracking script from Logly Analytics (https://logly.uk) and 
 * the visitor's country (resolved from IP at the edge; the IP itself is never stored)
 * device, browser and OS family (e.g. "Mobile / Chrome / Android")
 * the referrer URL, if any
-* your Site ID (so Logly knows which property the pageview belongs to)
+* your Site ID (so Loglyuk knows which property the pageview belongs to)
 
 No cookies are set, no personal data is stored, and no consent banner is required under GDPR or PECR.
 
-**When this happens:** only after you configure the plugin with a Site ID in **Settings → Logly**. Without a Site ID, the plugin sends nothing.
+**When this happens:** only after you configure the plugin with a Site ID in the Loglyuk admin page. Without a Site ID, the plugin sends nothing.
 
 **Terms and privacy policy:**
 
