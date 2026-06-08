@@ -83,6 +83,12 @@ No cookies are set, no personal data is stored, and no consent banner is require
 * Terms of Service: https://logly.uk/terms
 * Privacy Policy: https://logly.uk/privacy
 
+== Screenshots ==
+
+1. Dashboard overview — pageviews trend, sessions, visitors, top pages and referrers, with week-over-week comparison.
+2. Custom events with A/B comparison and conversion funnels that show exactly where visitors drop off.
+3. Audience insights — countries, devices, browsers, and a user-flow view from source to entry and exit pages.
+
 == Changelog ==
 
 = 1.0.0 =
