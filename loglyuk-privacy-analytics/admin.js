@@ -69,6 +69,44 @@
       '</div>';
   }
 
+  // Donut chart + legend for share-type breakdowns (countries, devices, browsers)
+  var PIE_COLORS = ['#6366f1', '#22c55e', '#f59e0b', '#ef4444', '#06b6d4', '#a855f7', '#94a3b8'];
+
+  function pie(label, rows) {
+    rows = (rows || []).slice();
+    var total = rows.reduce(function (s, r) { return s + (r.count || 0); }, 0);
+    var head = '<div style="font-size:0.8125rem;font-weight:600;color:#475569;margin-bottom:0.5rem">' + esc(label) + '</div>';
+    if (!total) {
+      return '<div style="flex:1;min-width:200px">' + head +
+        '<p style="color:#94a3b8;font-size:0.8125rem;margin:0">&mdash;</p></div>';
+    }
+    var top = rows.slice(0, 6);
+    var rest = rows.slice(6).reduce(function (s, r) { return s + (r.count || 0); }, 0);
+    if (rest > 0) top.push({ value: 'Other', count: rest });
+
+    var stops = [], acc = 0, legend = '';
+    top.forEach(function (r, i) {
+      var pct = (r.count / total) * 100;
+      var c = PIE_COLORS[i % PIE_COLORS.length];
+      stops.push(c + ' ' + acc.toFixed(2) + '% ' + (acc + pct).toFixed(2) + '%');
+      acc += pct;
+      legend += '<li style="display:flex;align-items:center;gap:0.4rem;font-size:0.8125rem;padding:0.15rem 0">' +
+        '<span style="width:9px;height:9px;border-radius:2px;flex:none;background:' + c + '"></span>' +
+        '<span style="color:#334155;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">' + esc(r.value) + '</span>' +
+        '<span style="color:#64748b;font-variant-numeric:tabular-nums">' + Math.round(pct) + '%</span>' +
+        '</li>';
+    });
+
+    var donut = '<div style="width:92px;height:92px;flex:none;border-radius:50%;' +
+      'background:conic-gradient(' + stops.join(',') + ');' +
+      '-webkit-mask:radial-gradient(circle 27px at center, transparent 98%, #000 100%);' +
+      'mask:radial-gradient(circle 27px at center, transparent 98%, #000 100%)"></div>';
+
+    return '<div style="flex:1;min-width:240px">' + head +
+      '<div style="display:flex;align-items:center;gap:1rem">' + donut +
+      '<ul style="margin:0;padding:0;list-style:none;flex:1;min-width:0">' + legend + '</ul></div></div>';
+  }
+
   function message(text) {
     root.innerHTML = '<p style="color:#64748b;font-size:0.875rem;margin:0.5rem 0">' + esc(text) + '</p>';
   }
@@ -85,15 +123,18 @@
 
     var lists =
       list(root.dataset.lPages, b.pages) +
-      list(root.dataset.lReferrers, b.referrers) +
-      list(root.dataset.lCountries, b.countries) +
-      list(root.dataset.lDevices, b.devices) +
-      list(root.dataset.lBrowsers, b.browsers);
+      list(root.dataset.lReferrers, b.referrers);
+
+    var pies =
+      pie(root.dataset.lCountries, b.countries) +
+      pie(root.dataset.lDevices, b.devices) +
+      pie(root.dataset.lBrowsers, b.browsers);
 
     root.innerHTML =
       '<div style="display:flex;gap:0.625rem;flex-wrap:wrap;margin-bottom:1rem">' + cards + '</div>' +
       chart(root.dataset.lTrend, stats && stats.daily) +
-      '<div style="display:flex;gap:2rem;flex-wrap:wrap">' + lists + '</div>';
+      '<div style="display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:1.25rem">' + lists + '</div>' +
+      '<div style="display:flex;gap:2rem;flex-wrap:wrap">' + pies + '</div>';
   }
 
   function load() {

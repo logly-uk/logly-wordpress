@@ -4,7 +4,7 @@ Tags: analytics, privacy, GDPR, cookie-free, lightweight
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ No cookies are set, no personal data is stored, and no consent banner is require
 
 == Changelog ==
 
+= 1.0.2 =
+* Countries, devices and browsers are now shown as donut charts with a percentage legend.
+
 = 1.0.1 =
 * The admin dashboard now renders your analytics natively in WordPress via the Loglyuk public API instead of embedding an external iframe.
 * Richer overview: pageviews trend chart, plus top pages, referrers, countries, devices and browsers, with a 7/30/90-day range picker.
@@ -101,6 +104,9 @@ No cookies are set, no personal data is stored, and no consent banner is require
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Countries, devices and browsers now display as donut charts.
 
 = 1.0.1 =
 Analytics now render natively in wp-admin (no external iframe).
