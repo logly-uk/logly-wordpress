@@ -3,7 +3,7 @@
  * Plugin Name: Loglyuk Privacy Analytics
  * Plugin URI:  https://logly.uk
  * Description: Privacy-first analytics under 1 KB. No cookies, no consent banner, works with Brave and uBlock Origin. Connects your WordPress site to Loglyuk (logly.uk).
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      Loglyuk
  * License:     GPL-2.0+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'LOGLYUK_VERSION', '1.0.0' );
+define( 'LOGLYUK_VERSION', '1.0.1' );
 define( 'LOGLYUK_APP',     'https://app.logly.uk' );
 define( 'LOGLYUK_TRACKER', 'https://logly.uk' );
 
@@ -88,17 +88,32 @@ function loglyuk_admin_page() {
         </div>
 
         <?php if ( $site_id ) : ?>
-        <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:0.875rem 1rem 0">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.625rem">
-                <span style="font-size:0.9375rem;font-weight:600"><?php esc_html_e( 'Analytics', 'loglyuk-privacy-analytics' ); ?></span>
+        <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:0.875rem 1rem 1rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;gap:1rem;flex-wrap:wrap">
+                <div style="display:flex;align-items:center;gap:0.75rem">
+                    <span style="font-size:0.9375rem;font-weight:600"><?php esc_html_e( 'Analytics', 'loglyuk-privacy-analytics' ); ?></span>
+                    <select id="loglyuk-days" style="font-size:0.8125rem;padding:0.15rem 0.4rem;border:1px solid #e2e8f0;border-radius:4px;background:#fff">
+                        <option value="7"><?php esc_html_e( 'Last 7 days', 'loglyuk-privacy-analytics' ); ?></option>
+                        <option value="30" selected><?php esc_html_e( 'Last 30 days', 'loglyuk-privacy-analytics' ); ?></option>
+                        <option value="90"><?php esc_html_e( 'Last 90 days', 'loglyuk-privacy-analytics' ); ?></option>
+                    </select>
+                </div>
                 <a href="<?php echo esc_url( LOGLYUK_APP . '/dashboard' ); ?>" target="_blank" rel="noopener" style="font-size:0.8125rem;color:#6366f1"><?php esc_html_e( 'Full dashboard →', 'loglyuk-privacy-analytics' ); ?></a>
             </div>
-            <iframe
-                src="<?php echo esc_url( LOGLYUK_APP . '/embed?s=' . $site_id ); ?>"
-                style="width:100%;height:calc(100vh - 220px);min-height:600px;border:1px solid #e2e8f0;border-radius:6px;background:#f8fafc;display:block"
-                loading="lazy"
-                title="<?php echo esc_attr__( 'Loglyuk Privacy Analytics', 'loglyuk-privacy-analytics' ); ?>"
-            ></iframe>
+            <div id="loglyuk-dashboard"
+                 data-site="<?php echo esc_attr( $site_id ); ?>"
+                 data-api="<?php echo esc_url( LOGLYUK_APP ); ?>"
+                 data-msg-private="<?php echo esc_attr__( 'Dashboard not available. Enable the Public toggle for this site in Logly settings.', 'loglyuk-privacy-analytics' ); ?>"
+                 data-msg-error="<?php echo esc_attr__( 'Could not load analytics. Please try again later.', 'loglyuk-privacy-analytics' ); ?>"
+                 data-l-pageviews="<?php echo esc_attr__( 'Pageviews', 'loglyuk-privacy-analytics' ); ?>"
+                 data-l-visitors="<?php echo esc_attr__( 'Visitors', 'loglyuk-privacy-analytics' ); ?>"
+                 data-l-sessions="<?php echo esc_attr__( 'Sessions', 'loglyuk-privacy-analytics' ); ?>"
+                 data-l-bounce="<?php echo esc_attr__( 'Bounce rate', 'loglyuk-privacy-analytics' ); ?>"
+                 data-l-duration="<?php echo esc_attr__( 'Avg. duration', 'loglyuk-privacy-analytics' ); ?>"
+                 data-l-pages="<?php echo esc_attr__( 'Top pages', 'loglyuk-privacy-analytics' ); ?>"
+                 data-l-referrers="<?php echo esc_attr__( 'Top referrers', 'loglyuk-privacy-analytics' ); ?>">
+                <p style="color:#64748b;font-size:0.875rem;margin:0.5rem 0"><?php esc_html_e( 'Loading…', 'loglyuk-privacy-analytics' ); ?></p>
+            </div>
         </div>
         <?php endif; ?>
     </div>

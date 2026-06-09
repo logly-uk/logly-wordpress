@@ -4,7 +4,7 @@ Tags: analytics, privacy, GDPR, cookie-free, lightweight
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,8 @@ No cookies are set, no personal data is stored, and no consent banner is require
 
 **When this happens:** only after you configure the plugin with a Site ID in the Loglyuk admin page. Without a Site ID, the plugin sends nothing.
 
+**Reading your analytics in wp-admin:** when you open the Loglyuk admin page, the plugin fetches your aggregated, non-personal statistics (totals, top pages and referrers) from Loglyuk's public API at `https://app.logly.uk/api/public/<your-site-id>/stats` and `/breakdown`, and renders them natively in WordPress. These read-only requests run only on the plugin's admin page and only return data you have explicitly marked Public in your Loglyuk settings.
+
 **Terms and privacy policy:**
 
 * Terms of Service: https://logly.uk/terms
@@ -91,10 +93,16 @@ No cookies are set, no personal data is stored, and no consent banner is require
 
 == Changelog ==
 
+= 1.0.1 =
+* The admin dashboard now renders your analytics natively in WordPress via the Loglyuk public API instead of embedding an external iframe.
+
 = 1.0.0 =
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Analytics now render natively in wp-admin (no external iframe).
 
 = 1.0.0 =
 Initial release.
