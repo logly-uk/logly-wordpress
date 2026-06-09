@@ -54,12 +54,28 @@
       '</div>';
   }
 
+  // Pageviews-over-time bars, built from the daily series already in /stats (no extra query)
+  function chart(label, daily) {
+    daily = daily || [];
+    var max = daily.reduce(function (m, d) { return Math.max(m, d.pageviews || 0); }, 0) || 1;
+    var bars = daily.map(function (d) {
+      var h = Math.round(((d.pageviews || 0) / max) * 100);
+      var title = (d.date || '') + ': ' + fmtNum(d.pageviews) + ' ' + label.toLowerCase();
+      return '<div title="' + esc(title) + '" style="flex:1;min-width:2px;height:' + h + '%;min-height:1px;background:#6366f1;border-radius:2px 2px 0 0;opacity:0.85"></div>';
+    }).join('');
+    return '<div style="margin-bottom:1rem">' +
+      '<div style="font-size:0.8125rem;font-weight:600;color:#475569;margin-bottom:0.4rem">' + esc(label) + '</div>' +
+      '<div style="display:flex;align-items:flex-end;gap:2px;height:80px;border-bottom:1px solid #e2e8f0;padding-bottom:1px">' + bars + '</div>' +
+      '</div>';
+  }
+
   function message(text) {
     root.innerHTML = '<p style="color:#64748b;font-size:0.875rem;margin:0.5rem 0">' + esc(text) + '</p>';
   }
 
   function render(stats, breakdown) {
     var t = (stats && stats.totals) || {};
+    var b = breakdown || {};
     var cards =
       stat(root.dataset.lPageviews, fmtNum(t.pageviews)) +
       stat(root.dataset.lVisitors, fmtNum(t.visitors)) +
@@ -68,11 +84,15 @@
       stat(root.dataset.lDuration, fmtDuration(t.avg_duration_s));
 
     var lists =
-      list(root.dataset.lPages, breakdown && breakdown.pages) +
-      list(root.dataset.lReferrers, breakdown && breakdown.referrers);
+      list(root.dataset.lPages, b.pages) +
+      list(root.dataset.lReferrers, b.referrers) +
+      list(root.dataset.lCountries, b.countries) +
+      list(root.dataset.lDevices, b.devices) +
+      list(root.dataset.lBrowsers, b.browsers);
 
     root.innerHTML =
       '<div style="display:flex;gap:0.625rem;flex-wrap:wrap;margin-bottom:1rem">' + cards + '</div>' +
+      chart(root.dataset.lTrend, stats && stats.daily) +
       '<div style="display:flex;gap:2rem;flex-wrap:wrap">' + lists + '</div>';
   }
 

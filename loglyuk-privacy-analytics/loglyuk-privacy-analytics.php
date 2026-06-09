@@ -92,11 +92,14 @@ function loglyuk_admin_page() {
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;gap:1rem;flex-wrap:wrap">
                 <div style="display:flex;align-items:center;gap:0.75rem">
                     <span style="font-size:0.9375rem;font-weight:600"><?php esc_html_e( 'Analytics', 'loglyuk-privacy-analytics' ); ?></span>
-                    <select id="loglyuk-days" style="font-size:0.8125rem;padding:0.15rem 0.4rem;border:1px solid #e2e8f0;border-radius:4px;background:#fff">
-                        <option value="7"><?php esc_html_e( 'Last 7 days', 'loglyuk-privacy-analytics' ); ?></option>
-                        <option value="30" selected><?php esc_html_e( 'Last 30 days', 'loglyuk-privacy-analytics' ); ?></option>
-                        <option value="90"><?php esc_html_e( 'Last 90 days', 'loglyuk-privacy-analytics' ); ?></option>
-                    </select>
+                    <span style="position:relative;display:inline-block">
+                        <select id="loglyuk-days" style="font-size:0.8125rem;padding:0.2rem 1.6rem 0.2rem 0.55rem;border:1px solid #cbd5e1;border-radius:6px;background:#fff;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none">
+                            <option value="7"><?php esc_html_e( 'Last 7 days', 'loglyuk-privacy-analytics' ); ?></option>
+                            <option value="30" selected><?php esc_html_e( 'Last 30 days', 'loglyuk-privacy-analytics' ); ?></option>
+                            <option value="90"><?php esc_html_e( 'Last 90 days', 'loglyuk-privacy-analytics' ); ?></option>
+                        </select>
+                        <span aria-hidden="true" style="position:absolute;right:0.55rem;top:50%;transform:translateY(-50%);pointer-events:none;color:#64748b;font-size:0.65rem">&#9660;</span>
+                    </span>
                 </div>
                 <a href="<?php echo esc_url( LOGLYUK_APP . '/dashboard' ); ?>" target="_blank" rel="noopener" style="font-size:0.8125rem;color:#6366f1"><?php esc_html_e( 'Full dashboard →', 'loglyuk-privacy-analytics' ); ?></a>
             </div>
@@ -111,7 +114,11 @@ function loglyuk_admin_page() {
                  data-l-bounce="<?php echo esc_attr__( 'Bounce rate', 'loglyuk-privacy-analytics' ); ?>"
                  data-l-duration="<?php echo esc_attr__( 'Avg. duration', 'loglyuk-privacy-analytics' ); ?>"
                  data-l-pages="<?php echo esc_attr__( 'Top pages', 'loglyuk-privacy-analytics' ); ?>"
-                 data-l-referrers="<?php echo esc_attr__( 'Top referrers', 'loglyuk-privacy-analytics' ); ?>">
+                 data-l-referrers="<?php echo esc_attr__( 'Top referrers', 'loglyuk-privacy-analytics' ); ?>"
+                 data-l-countries="<?php echo esc_attr__( 'Countries', 'loglyuk-privacy-analytics' ); ?>"
+                 data-l-devices="<?php echo esc_attr__( 'Devices', 'loglyuk-privacy-analytics' ); ?>"
+                 data-l-browsers="<?php echo esc_attr__( 'Browsers', 'loglyuk-privacy-analytics' ); ?>"
+                 data-l-trend="<?php echo esc_attr__( 'Pageviews', 'loglyuk-privacy-analytics' ); ?>">
                 <p style="color:#64748b;font-size:0.875rem;margin:0.5rem 0"><?php esc_html_e( 'Loading…', 'loglyuk-privacy-analytics' ); ?></p>
             </div>
         </div>

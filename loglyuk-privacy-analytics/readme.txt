@@ -95,6 +95,7 @@ No cookies are set, no personal data is stored, and no consent banner is require
 
 = 1.0.1 =
 * The admin dashboard now renders your analytics natively in WordPress via the Loglyuk public API instead of embedding an external iframe.
+* Richer overview: pageviews trend chart, plus top pages, referrers, countries, devices and browsers, with a 7/30/90-day range picker.
 
 = 1.0.0 =
 * Initial release
