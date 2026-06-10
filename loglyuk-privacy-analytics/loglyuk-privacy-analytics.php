@@ -3,7 +3,7 @@
  * Plugin Name: Loglyuk Privacy Analytics
  * Plugin URI:  https://logly.uk
  * Description: Privacy-first analytics under 1 KB. No cookies, no consent banner, works with Brave and uBlock Origin. Connects your WordPress site to Loglyuk (logly.uk).
- * Version:     1.0.2
+ * Version:     1.0.3
  * Author:      Loglyuk
  * License:     GPL-2.0+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'LOGLYUK_VERSION', '1.0.2' );
+define( 'LOGLYUK_VERSION', '1.0.3' );
 define( 'LOGLYUK_APP',     'https://app.logly.uk' );
 define( 'LOGLYUK_TRACKER', 'https://logly.uk' );
 

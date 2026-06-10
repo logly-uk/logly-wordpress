@@ -1,23 +1,24 @@
 === Loglyuk Privacy Analytics ===
 Contributors: loglyuk
-Tags: analytics, privacy, GDPR, cookie-free, lightweight
+Tags: analytics, privacy, statistics, cookieless, gdpr
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Privacy-first analytics under 1 KB. No cookies, no consent banner, works with Brave and uBlock Origin.
+Cookieless, privacy-first web analytics — a lightweight Google Analytics alternative. No cookie banner, GDPR-ready, under 1 KB.
 
 == Description ==
 
-**Loglyuk Privacy Analytics** connects your WordPress site to Loglyuk (logly.uk), a lightweight web analytics service that tracks your visitors without cookies, without storing personal data, and without requiring a consent banner.
+**Loglyuk Privacy Analytics** brings cookieless, privacy-first web analytics to your WordPress site — a lightweight alternative to Google Analytics that measures your traffic without cookies, without storing personal data, and without a consent banner. You see your stats right inside the WordPress dashboard, and the tracking script is under 1 KB, so it won't drag down your page speed or Core Web Vitals.
 
 = Why Loglyuk? =
 
+* **See your stats inside WordPress** — pageviews trend, top pages, referrers and country/device/browser charts right in wp-admin, rendered natively (no iframe)
 * **Under 1 KB** — zero impact on your Lighthouse score or Core Web Vitals
-* **No cookie banner required** — no persistent identifiers, GDPR compliant by design
+* **No cookie banner required** — no cookies, no persistent identifiers, GDPR compliant by design
 * **Works with ad blockers** — including Brave Shields and uBlock Origin
 * **Active time on page** — measures real reading time, not just tab-open time
 * **Free plan** — 10,000 pageviews/month, forever, no credit card
@@ -44,6 +45,14 @@ Privacy-first analytics under 1 KB. No cookies, no consent banner, works with Br
 3. Go to **Loglyuk** in the admin sidebar and enter your Site ID
 
 == Frequently Asked Questions ==
+
+= Is Loglyuk a Google Analytics alternative? =
+
+Yes. Loglyuk is a lightweight, cookieless alternative to Google Analytics. It reports the metrics most site owners actually use — pageviews, visitors, sessions, top pages, referrers, countries, devices and browsers — without cookies, consent banners, or a heavy script.
+
+= Can I see my analytics inside the WordPress dashboard? =
+
+Yes. The plugin renders your stats natively on the Loglyuk admin page — a pageviews trend, top pages and referrers, and country, device and browser breakdowns — by reading Loglyuk's public API. No external page is embedded in your admin area.
 
 = Do I need a cookie banner? =
 
@@ -90,8 +99,12 @@ No cookies are set, no personal data is stored, and no consent banner is require
 1. Dashboard overview — pageviews trend, sessions, visitors, top pages and referrers, with week-over-week comparison.
 2. Custom events with A/B comparison and conversion funnels that show exactly where visitors drop off.
 3. Audience insights — countries, devices, browsers, and a user-flow view from source to entry and exit pages.
+4. Your analytics inside the WordPress admin — pageviews trend, top pages and referrers, and country, device and browser charts, rendered natively (no iframe).
 
 == Changelog ==
+
+= 1.0.3 =
+* Added a screenshot of the dashboard inside the WordPress admin and refreshed the plugin description.
 
 = 1.0.2 =
 * Countries, devices and browsers are now shown as donut charts with a percentage legend.
@@ -104,6 +117,9 @@ No cookies are set, no personal data is stored, and no consent banner is require
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+Documentation only — refreshed description and added an in-WordPress dashboard screenshot.
 
 = 1.0.2 =
 Countries, devices and browsers now display as donut charts.
