@@ -5,7 +5,7 @@
 set -eu
 
 VERSION="${1:?Uso: deploy.sh <version>   (ej: deploy.sh 1.0.0)}"
-SVN_URL="https://plugins.svn.wordpress.org/logly-analytics"
+SVN_URL="https://plugins.svn.wordpress.org/loglyuk-privacy-analytics"
 : "${SVN_USER:?Falta SVN_USER (tu usuario de WordPress.org, case-sensitive)}"
 
 # Archivos del plugin que SÍ se publican (todo lo demás se ignora).
@@ -48,4 +48,4 @@ svn status
 
 echo ">> Commit (SVN pedirá tu password de WordPress.org)"
 svn commit -m "Release $VERSION" --username "$SVN_USER"
-echo ">> Hecho. Ficha pública: https://wordpress.org/plugins/logly-analytics"
+echo ">> Hecho. Ficha pública: https://wordpress.org/plugins/loglyuk-privacy-analytics"

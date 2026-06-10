@@ -7,9 +7,9 @@ Docker efímero con `subversion` para no ensuciar la máquina. La contraseña SV
 ## Estructura del repo SVN
 
 ```
-logly-analytics/   (slug del SVN; el folder/textdomain del plugin es loglyuk-privacy-analytics)
+loglyuk-privacy-analytics/   (slug del SVN, ahora coincide con el folder/textdomain)
 ├── trunk/        # plugin actual (loglyuk-privacy-analytics.php + admin.js + readme.txt)
-├── tags/1.0.0/   # release congelada — esto es lo que instalan los usuarios
+├── tags/1.0.2/   # release congelada — esto es lo que instalan los usuarios
 └── assets/       # banner / icono / screenshots de la ficha (NO se empaqueta)
 ```
 
@@ -23,14 +23,14 @@ docker run --rm -it \
   -v "$PWD/loglyuk-privacy-analytics:/plugin:ro" \
   -v "$PWD/wp-org-assets:/assets:ro" \
   -v "$PWD/.svn-deploy:/deploy:ro" \
-  alpine:3 sh /deploy/deploy.sh 1.0.0
+  alpine:3 sh /deploy/deploy.sh 1.0.2
 ```
 
 - `SVN_USER` = tu usuario de WordPress.org (**case-sensitive**, no el email).
 - SVN pedirá tu **password SVN** (distinta de la del login web). Se obtiene/regenera en:
   https://profiles.wordpress.org/me/profile/edit/group/3/?screen=svn-password
 - Para una versión nueva: actualiza `Version:` en `loglyuk-privacy-analytics.php` y
-  `Stable tag:` en `readme.txt`, y cambia el último argumento (`1.0.0` → `1.1.0`).
+  `Stable tag:` en `readme.txt`, y cambia el último argumento (`1.0.2` → `1.0.3`).
 
 ## Assets de la ficha (icono/banner)
 
