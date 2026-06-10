@@ -4,7 +4,7 @@ Tags: analytics, privacy, statistics, cookieless, gdpr
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,12 +96,15 @@ No cookies are set, no personal data is stored, and no consent banner is require
 
 == Screenshots ==
 
-1. Dashboard overview — pageviews trend, sessions, visitors, top pages and referrers, with week-over-week comparison.
-2. Custom events with A/B comparison and conversion funnels that show exactly where visitors drop off.
-3. Audience insights — countries, devices, browsers, and a user-flow view from source to entry and exit pages.
-4. Your analytics inside the WordPress admin — pageviews trend, top pages and referrers, and country, device and browser charts, rendered natively (no iframe).
+1. Your analytics inside the WordPress admin — pageviews trend, top pages and referrers, and country, device and browser charts, rendered natively (no iframe).
+2. Dashboard overview — pageviews trend, sessions, visitors, top pages and referrers, with week-over-week comparison.
+3. Custom events with A/B comparison and conversion funnels that show exactly where visitors drop off.
+4. Audience insights — countries, devices, browsers, and a user-flow view from source to entry and exit pages.
 
 == Changelog ==
+
+= 1.0.4 =
+* The in-WordPress dashboard screenshot is now the first image on the listing.
 
 = 1.0.3 =
 * Added a screenshot of the dashboard inside the WordPress admin and refreshed the plugin description.
@@ -117,6 +120,9 @@ No cookies are set, no personal data is stored, and no consent banner is require
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.4 =
+Documentation only — screenshot order updated.
 
 = 1.0.3 =
 Documentation only — refreshed description and added an in-WordPress dashboard screenshot.
