@@ -56,4 +56,4 @@ the Logly dashboard.
 
 ## License
 
-GPL-2.0-or-later. See the plugin headers in [`logly/logly.php`](logly/logly.php).
+GPL-2.0-or-later. See the plugin headers in [`loglyuk-privacy-analytics/loglyuk-privacy-analytics.php`](loglyuk-privacy-analytics/loglyuk-privacy-analytics.php).
