@@ -1,10 +1,12 @@
-# Logly Analytics — WordPress plugin
+# Loglyuk Privacy Analytics — WordPress plugin
 
 Privacy-first web analytics for WordPress. Adds the [Logly](https://logly.uk)
 tracker to your site — under 1 KB, no cookies, no consent banner.
 
-The plugin lives in [`logly/`](logly/). It injects the Logly tracking script and
-shows your analytics dashboard inside WP Admin.
+Published in the WordPress.org directory as
+[Loglyuk Privacy Analytics](https://wordpress.org/plugins/loglyuk-privacy-analytics/).
+The plugin lives in [`loglyuk-privacy-analytics/`](loglyuk-privacy-analytics/). It injects the Logly tracking
+script and shows your analytics dashboard inside WP Admin.
 
 ## Why Logly
 
@@ -16,15 +18,18 @@ shows your analytics dashboard inside WP Admin.
 
 ## Installation
 
-**From a release zip** (recommended):
+**From WordPress.org** (recommended, with automatic updates):
 
-1. Download the latest `logly-analytics-*.zip` from the [Releases page](https://github.com/logly-uk/logly-wordpress/releases).
-2. In WP Admin, go to **Plugins → Add New → Upload Plugin**, choose the zip, then **Install Now** and **Activate**.
-3. Open **Logly** in the admin menu and enter your Site ID.
+1. In WP Admin, go to **Plugins → Add New Plugin** and search for *Loglyuk Privacy Analytics*.
+2. Click **Install Now**, then **Activate**.
+3. Open **Loglyuk** in the admin menu, enter your Site ID and click **Save**.
 
-**From WordPress.org**: once approved, search for *Logly Analytics* under Plugins → Add New.
+**From a release zip**: download `loglyuk-privacy-analytics-*.zip` from the
+[Releases page](https://github.com/logly-uk/logly-wordpress/releases), then in WP Admin go to
+**Plugins → Add New Plugin → Upload Plugin**, choose the zip, **Install Now** and **Activate**.
 
-**Manually**: copy the [`logly/`](logly/) folder into `wp-content/plugins/`, then activate the plugin under Plugins → Installed Plugins.
+**Manually**: copy the [`loglyuk-privacy-analytics/`](loglyuk-privacy-analytics/) folder into
+`wp-content/plugins/`, then activate it under **Plugins → Installed Plugins**.
 
 ## Configuration
 

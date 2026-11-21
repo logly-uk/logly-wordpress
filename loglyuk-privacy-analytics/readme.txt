@@ -4,7 +4,7 @@ Tags: analytics, privacy, statistics, cookieless, gdpr
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,8 @@ Cookieless, privacy-first web analytics — a lightweight Google Analytics alter
 == Description ==
 
 **Loglyuk Privacy Analytics** brings cookieless, privacy-first web analytics to your WordPress site — a lightweight alternative to Google Analytics that measures your traffic without cookies, without storing personal data, and without a consent banner. You see your stats right inside the WordPress dashboard, and the tracking script is under 1 KB, so it won't drag down your page speed or Core Web Vitals.
+
+👉 **[Try our live demo](https://app.logly.uk/demo)** — explore the full dashboard with real data, no signup required.
 
 = Why Loglyuk? =
 
@@ -103,6 +105,9 @@ No cookies are set, no personal data is stored, and no consent banner is require
 
 == Changelog ==
 
+= 1.0.5 =
+* Added a link to the live demo in the plugin description.
+
 = 1.0.4 =
 * The in-WordPress dashboard screenshot is now the first image on the listing.
 
@@ -120,6 +125,9 @@ No cookies are set, no personal data is stored, and no consent banner is require
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.5 =
+Documentation only — added a live demo link to the description.
 
 = 1.0.4 =
 Documentation only — screenshot order updated.
